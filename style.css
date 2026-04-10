@@ -164,3 +164,32 @@ button {
   font-weight: bold;
   cursor: pointer;
 }
+/* 📂 Progression par catégorie */
+#category-progress {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.category-progress-item {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.category-progress-title {
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.category-bar {
+  height: 10px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.category-fill {
+  height: 100%;
+  width: 0%;
+  background: #38bdf8;
+  transition: 0.5s;
+}
