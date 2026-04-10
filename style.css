@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: #1e3a8a;
+  border-bottom: 4px solid #facc15;
+}
+
+/* Progression */
+.progress-bar {
+  width: 80%;
+  height: 15px;
+  background: #1e293b;
+  margin: 10px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #22c55e;
+  transition: 0.5s;
+}
+
+/* Catégories */
+#categories {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.category {
+  padding: 6px 12px;
+  background: #334155;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category.active {
+  background: #facc15;
+  color: black;
+}
+
+/* Grille responsive */
+#achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 15px;
+}
+
+/* Carte */
+.card {
+  background: #1e293b;
+  border: 2px solid #facc15;
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Hover animation */
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Locked */
+.locked {
+  opacity: 0.4;
+}
+
+/* Animation déblocage */
+.unlocked {
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); }
+  100% { transform: scale(1); }
+}
+
+/* Bouton */
+button {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background: #facc15;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 20px;
+  }
+}
