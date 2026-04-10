@@ -219,6 +219,7 @@ function render() {
     });
 
   updateProgress();
+  renderCategoryProgress(); // 🔥 AJOUT ICI
 }
 
 // 🔓 Débloquer
@@ -233,6 +234,33 @@ function unlock(id) {
     save();
     render();
   }
+}
+
+function renderCategoryProgress() {
+  const container = document.getElementById("category-progress");
+  container.innerHTML = "";
+
+  const categories = [...new Set(achievements.map(a => a.category))];
+
+  categories.forEach(cat => {
+    const items = achievements.filter(a => a.category === cat);
+    const unlocked = items.filter(a => a.unlocked).length;
+    const percent = Math.round((unlocked / items.length) * 100);
+
+    const div = document.createElement("div");
+    div.className = "category-progress-item";
+
+    div.innerHTML = `
+      <div class="category-progress-title">
+        ${cat} : ${percent}%
+      </div>
+      <div class="category-bar">
+        <div class="category-fill" style="width:${percent}%"></div>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
 }
 
 // 🤖 Conditions automatiques (simulation simple)
