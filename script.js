@@ -240,17 +240,22 @@ function autoCheck() {
   // 🔒 Désactivé pour éviter les déblocages automatiques
 }
 //reset
-document.getElementById("reset-btn").onclick = () => {
-  if (confirm("⚠️ Réinitialiser tous les succès ?")) {
-    
-    achievements.forEach(a => a.unlocked = false);
+function setupResetButton() {
+  const btn = document.getElementById("reset-btn");
 
-    localStorage.removeItem("achievements");
+  if (!btn) return;
 
-    render();
-  }
-};
+  btn.onclick = () => {
+    if (confirm("⚠️ Réinitialiser tous les succès ?")) {
 
+      achievements.forEach(a => a.unlocked = false);
+
+      localStorage.removeItem("achievements");
+
+      render();
+    }
+  };
+}
 
 // 🚀 Init
 load();
