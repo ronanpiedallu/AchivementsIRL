@@ -4,7 +4,7 @@ const achievements = [
     id: "plant",
     title: "Créer la vie 🌱",
     description: "Planter une graine",
-    category: "Vie",
+    category: "Nature",
     unlocked: false
   },
   {
@@ -20,7 +20,128 @@ const achievements = [
     description: "Lire 10 pages",
     category: "Mental",
     unlocked: false
-  }
+  },
+  //social
+{
+  id: "mariage",
+  title: "Joyeux mariage! 💑",
+  description: "Se marier.",
+  category: "Social",
+  unlocked: false
+},
+{
+  id: "travail",
+  title: "Get a job! 🕴️",
+  description: "Trouver un travail",
+  category: "Social",
+  unlocked: false
+},
+{
+  id: "Aborder un inconnu dans la rue",
+  title: "Nouvelle rencontre 🙋‍♂️",
+  description: "Aborder un inconnu dans la rue",
+  category: "Social",
+  unlocked: false
+},
+{
+  id: "blague",
+  title: "P'tit comique 😜",
+  description: "Faire une blague à un inconnu dans la rue",
+  category: "Social",
+  unlocked: false
+},
+
+//Manger
+{
+  id: "piment",
+  title: "Spicy life 🌶️",
+  description: "Manger épicé.",
+  category: "Manger",
+  unlocked: false
+},
+{
+  id: "végétarien",
+  title: "Végétarien? 🍃",
+  description: " Manger une feuille",
+  category: "Manger",
+  unlocked: false
+},
+{
+  id: "faire à manger",
+  title: "Novice en cuisine 🧑‍🍳",
+  description: "Se faire à manger soi-même",
+  category: "Manger",
+  unlocked: false
+},
+
+//Sport
+{
+  id: "bras de fer",
+  title: "Vrai bonhomme! 🦾",
+  description: " Battre son père au bras de fer",
+  category: "Sport",
+  unlocked: false
+},
+{
+  id: "SL3jours",
+  title: "Sung Jin-woo? 🏋️",
+  description: "Avoir une streak de 3 jours sur Sport-Leveling",
+  category: "Sport",
+  unlocked: false
+},
+{
+  id: "SLlvl1",
+  title: "Un système? 🥇",
+  description: "Atteindre le niveau 1 sur Sport-Leveling",
+  category: "Sport",
+  unlocked: false
+},
+
+//musique
+{
+  id: "phonk",
+  title: "Edit life 🔥",
+  description: "Ecouter de la Phonk",
+  category: "Musique",
+  unlocked: false
+},
+{
+  id: "opanime",
+  title: "Vrai Otaku 🍙",
+  description: "Ecouter un opening/ending d'animé",
+  category: "Musique",
+  unlocked: false
+},
+{
+  id: "pompman",
+  title: "Troll rap 🤖",
+  description: "Ecouter 2 musiques de Pompman",
+  category: "Musique",
+  unlocked: false
+},
+{
+  id: "chanter",
+  title: "T'es pas Beyoncé 🎤",
+  description: "Chanter une musique en langue étrangère",
+  category: "Musique",
+  unlocked: false
+},
+
+//Nature
+{
+  id: "monterarbre",
+  title: "Instinct primaire 🐒",
+  description: "Monter à un arbre",
+  category: "Nature",
+  unlocked: false
+},
+{
+  id: "cailloux",
+  title: "Pierre précieuse 🪨",
+  description: "Trouver un cailloux plus gros que la paume de sa main",
+  category: "Nature",
+  unlocked: false
+}
 ];
 
 let currentCategory = "All";
