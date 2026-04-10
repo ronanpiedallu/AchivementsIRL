@@ -245,8 +245,10 @@ function renderCategoryProgress() {
   categories.forEach(cat => {
     const items = achievements.filter(a => a.category === cat);
     const unlocked = items.filter(a => a.unlocked).length;
-    const percent = Math.round((unlocked / items.length) * 100);
-
+    const percent = items.length
+  ? Math.round((unlocked / items.length) * 100)
+  : 0;
+    
     const div = document.createElement("div");
     div.className = "category-progress-item";
 
