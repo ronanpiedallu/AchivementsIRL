@@ -237,16 +237,9 @@ function unlock(id) {
 
 // 🤖 Conditions automatiques (simulation simple)
 function autoCheck() {
-  achievements.forEach(a => {
-    if (!a.unlocked) {
-      if (a.id === "sport" && Math.random() > 0.98) {
-        unlock(a.id);
-      }
-    }
-  });
+  // 🔒 Désactivé pour éviter les déblocages automatiques
 }
 
-setInterval(autoCheck, 4000);
 
 // 🚀 Init
 load();
