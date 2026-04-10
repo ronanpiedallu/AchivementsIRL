@@ -260,3 +260,4 @@ function setupResetButton() {
 // 🚀 Init
 load();
 render();
+setupResetButton()
