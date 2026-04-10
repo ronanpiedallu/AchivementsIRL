@@ -105,3 +105,52 @@ button {
     font-size: 20px;
   }
 }
+/* 📱 Mobile amélioré */
+@media (max-width: 600px) {
+
+  body {
+    font-size: 18px;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .progress-bar {
+    width: 95%;
+    height: 18px;
+  }
+
+  #achievements {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .category {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+}
