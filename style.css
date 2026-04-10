@@ -154,3 +154,13 @@ button {
     padding: 8px 14px;
   }
 }
+#reset-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #ef4444;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
