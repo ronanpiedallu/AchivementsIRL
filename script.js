@@ -60,14 +60,14 @@ const achievements = [
   unlocked: false
 },
 {
-  id: "végétarien",
+  id: "vegetarien",
   title: "Végétarien? 🍃",
   description: " Manger une feuille",
   category: "Manger",
   unlocked: false
 },
 {
-  id: "faire à manger",
+  id: "faireamanger",
   title: "Novice en cuisine 🧑‍🍳",
   description: "Se faire à manger soi-même",
   category: "Manger",
@@ -76,7 +76,7 @@ const achievements = [
 
 //Sport
 {
-  id: "bras de fer",
+  id: "brasdefer",
   title: "Vrai bonhomme! 🦾",
   description: " Battre son père au bras de fer",
   category: "Sport",
