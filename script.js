@@ -37,7 +37,7 @@ const achievements = [
   unlocked: false
 },
 {
-  id: "Aborder un inconnu dans la rue",
+  id: "Aborderuninconnudanslarue",
   title: "Nouvelle rencontre 🙋‍♂️",
   description: "Aborder un inconnu dans la rue",
   category: "Social",
