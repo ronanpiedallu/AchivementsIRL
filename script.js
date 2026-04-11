@@ -262,6 +262,24 @@ function renderCategoryProgress() {
     : [currentCategory];
 
   categories.forEach(cat => {
+   function renderCategoryProgress() {
+  const container = document.getElementById("category-progress");
+  container.innerHTML = "";
+
+  const colors = {
+     Sport: "#38bdf8",
+    Social: "#facc15",
+    Nature: "#22c55e",
+    Musique: "#f97316",
+    Mental: "#a855f7",
+    Manger: "#ef4444"
+  };
+
+  const categories = currentCategory === "All"
+    ? [...new Set(achievements.map(a => a.category))]
+    : [currentCategory];
+
+  categories.forEach(cat => {
     const items = achievements.filter(a => a.category === cat);
     const unlocked = items.filter(a => a.unlocked).length;
 
@@ -279,9 +297,7 @@ function renderCategoryProgress() {
         ${cat} : ${percent}%
       </div>
       <div class="category-bar">
-        <div class="category-fill" 
-             style="width:${percent}%; background:${color}">
-        </div>
+        <div class="category-fill" style="width:${percent}%; background:${color}"></div>
       </div>
     `;
 
