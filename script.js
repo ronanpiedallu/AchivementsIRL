@@ -144,12 +144,12 @@ const achievements = [
 }
 ];
 
+
 let currentCategory = "All";
 
-// 🔄 Charger sauvegarde
+// 💾 Load
 function load() {
   const saved = JSON.parse(localStorage.getItem("achievements"));
-
   if (saved) {
     achievements.forEach(a => {
       const found = saved.find(s => s.id === a.id);
@@ -158,12 +158,12 @@ function load() {
   }
 }
 
-// 💾 Sauvegarder
+// 💾 Save
 function save() {
   localStorage.setItem("achievements", JSON.stringify(achievements));
 }
 
-// 📊 Progression
+// 📊 Progression globale
 function updateProgress() {
   const total = achievements.length;
   const unlocked = achievements.filter(a => a.unlocked).length;
@@ -210,7 +210,7 @@ function render() {
       card.innerHTML = `
         <h3>${a.title}</h3>
         <p>${a.description}</p>
-        <button onclick="unlock('${a.id}')">
+        <button class="unlock-btn" data-id="${a.id}">
           ${a.unlocked ? "✔ Débloqué" : "Débloquer"}
         </button>
       `;
@@ -218,56 +218,33 @@ function render() {
       container.appendChild(card);
     });
 
+  // 🔥 Event listeners propres
+  document.querySelectorAll(".unlock-btn").forEach(btn => {
+    btn.onclick = () => unlock(btn.dataset.id);
+  });
+
   updateProgress();
-  renderCategoryProgress(); // 🔥 AJOUT ICI
+  renderCategoryProgress();
 }
 
-// 🔓 Débloquer
+// 🔓 Unlock
 function unlock(id) {
   const a = achievements.find(x => x.id === id);
   if (!a.unlocked) {
     a.unlocked = true;
-
-    // 🎉 effet visuel simple
     alert("🎉 Succès débloqué : " + a.title);
-
     save();
     render();
   }
 }
 
+// 📊 Progression par catégorie
 function renderCategoryProgress() {
   const container = document.getElementById("category-progress");
   container.innerHTML = "";
 
-  const categories = [...new Set(achievements.map(a => a.category))];
-
-  function renderCategoryProgress() {
-  const container = document.getElementById("category-progress");
-  container.innerHTML = "";
-
-  // 🎨 couleurs par catégorie
   const colors = {
     Sport: "#38bdf8",
-    Social: "#facc15",
-    Nature: "#22c55e",
-    Musique: "#f97316",
-    Mental: "#a855f7",
-    Manger: "#ef4444"
-  };
-
-  // 🎯 choisir catégories à afficher
-  const categories = currentCategory === "All"
-    ? [...new Set(achievements.map(a => a.category))]
-    : [currentCategory];
-
-  categories.forEach(cat => {
-   function renderCategoryProgress() {
-  const container = document.getElementById("category-progress");
-  container.innerHTML = "";
-
-  const colors = {
-     Sport: "#38bdf8",
     Social: "#facc15",
     Nature: "#22c55e",
     Musique: "#f97316",
@@ -304,45 +281,16 @@ function renderCategoryProgress() {
     container.appendChild(div);
   });
 }
-    const items = achievements.filter(a => a.category === cat);
-    const unlocked = items.filter(a => a.unlocked).length;
-    const percent = items.length
-  ? Math.round((unlocked / items.length) * 100)
-  : 0;
-    
-    const div = document.createElement("div");
-    div.className = "category-progress-item";
 
-    div.innerHTML = `
-      <div class="category-progress-title">
-        ${cat} : ${percent}%
-      </div>
-      <div class="category-bar">
-        <div class="category-fill" style="width:${percent}%"></div>
-      </div>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-// 🤖 Conditions automatiques (simulation simple)
-function autoCheck() {
-  // 🔒 Désactivé pour éviter les déblocages automatiques
-}
-//reset
+// 🔄 Reset
 function setupResetButton() {
   const btn = document.getElementById("reset-btn");
-
   if (!btn) return;
 
   btn.onclick = () => {
     if (confirm("⚠️ Réinitialiser tous les succès ?")) {
-
       achievements.forEach(a => a.unlocked = false);
-
       localStorage.removeItem("achievements");
-
       render();
     }
   };
@@ -351,4 +299,4 @@ function setupResetButton() {
 // 🚀 Init
 load();
 render();
-setupResetButton()
+setupResetButton();
