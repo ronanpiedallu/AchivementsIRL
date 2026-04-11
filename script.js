@@ -243,6 +243,9 @@ function renderCategoryProgress() {
   const container = document.getElementById("category-progress");
   container.innerHTML = "";
 
+  // 🎯 Si "All" → ne rien afficher (on garde juste la barre globale)
+  if (currentCategory === "All") return;
+
   const colors = {
     Sport: "#38bdf8",
     Social: "#facc15",
@@ -252,34 +255,28 @@ function renderCategoryProgress() {
     Manger: "#ef4444"
   };
 
-  const categories = currentCategory === "All"
-    ? [...new Set(achievements.map(a => a.category))]
-    : [currentCategory];
+  const items = achievements.filter(a => a.category === currentCategory);
+  const unlocked = items.filter(a => a.unlocked).length;
 
-  categories.forEach(cat => {
-    const items = achievements.filter(a => a.category === cat);
-    const unlocked = items.filter(a => a.unlocked).length;
+  const percent = items.length
+    ? Math.round((unlocked / items.length) * 100)
+    : 0;
 
-    const percent = items.length
-      ? Math.round((unlocked / items.length) * 100)
-      : 0;
+  const color = colors[currentCategory] || "#38bdf8";
 
-    const color = colors[cat] || "#38bdf8";
+  const div = document.createElement("div");
+  div.className = "category-progress-item";
 
-    const div = document.createElement("div");
-    div.className = "category-progress-item";
+  div.innerHTML = `
+    <div class="category-progress-title">
+      ${currentCategory} : ${percent}%
+    </div>
+    <div class="category-bar">
+      <div class="category-fill" style="width:${percent}%; background:${color}"></div>
+    </div>
+  `;
 
-    div.innerHTML = `
-      <div class="category-progress-title">
-        ${cat} : ${percent}%
-      </div>
-      <div class="category-bar">
-        <div class="category-fill" style="width:${percent}%; background:${color}"></div>
-      </div>
-    `;
-
-    container.appendChild(div);
-  });
+  container.appendChild(div);
 }
 
 // 🔄 Reset
